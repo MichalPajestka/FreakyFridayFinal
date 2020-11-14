@@ -251,6 +251,7 @@ nav a.active{
 }
 
 .fa {
+    color: white;
     padding: 20px;
     font-size: 30px;
     width: 30px;
