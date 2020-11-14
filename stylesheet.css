@@ -1,0 +1,268 @@
+/*
+Learning material:
+https://www.youtube.com/watch?v=8QKOaTYvYUA&feature=emb_logo&ab_channel=KevinPowell
+*/
+
+
+:root {
+    --background: #EF233C;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    background: white;
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: 400;
+}
+
+.heading {
+    padding: 150px;
+    color: black;
+}
+
+
+.content {
+    background-color: white;
+    background-blend-mode: multiply;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+    .content {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+h1 {
+    text-align: center;
+}
+
+.introduction {
+    text-align: center;
+    font-size: 20px;
+}
+
+.intellimat {
+    color: #EF233C;
+    font-weight: bold;
+}
+
+.specially {
+    color: #EF233C;
+    font-weight: bold;
+}
+
+
+header {
+    background: var(--background);
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+}
+
+.image-container {
+    top: 500px;
+    left: 700px;
+}
+
+@media screen and (max-width: 480px) {
+    img {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .image-container {
+        margin-bottom: 100px;
+    }
+}
+
+.logo{
+    color: #2B2D42;
+    font-family: Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.nav-toggle {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
+
+.nav-toggle:focus ~ .nav-toggle-label {
+    outline: 3px;
+}
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: #2B2D42;
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+    top: 7px;
+}
+
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    background: var(--background);
+    width: 100%;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    text-align: center;
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+nav a {
+    color: #2B2D42;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+    color: #EDF2F4;
+}
+
+nav a.active{
+    color: #EDF2F4;
+}
+
+.nav-toggle:checked ~ nav {
+    transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen and (min-width: 800px) {
+    .nav-toggle-label {
+        display: none;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+    }
+
+    .logo {
+        grid-column: 2 / 3;
+    }
+
+    nav {
+    / / all: unset;
+        position: relative;
+        text-align: left;
+        transition: none;
+        transform: scale(1, 1);
+        background: none;
+        top: initial;
+        left: initial;
+
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    nav ul {
+        display: flex;
+    }
+
+    nav li {
+        margin-left: 3em;
+        margin-bottom: 0;
+    }
+
+    nav a {
+        cursor: pointer;
+        opacity: 1;
+        position: relative;
+    }
+
+    nav a:hover::before {
+        transform: scale(1,1);
+    }
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:#8D99AE;
+    color: white;
+    text-align: center;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.alignLeft {
+    float: left;;
+}
+.alignRight {
+    float: right;
+    padding: 20px 10px;
+}
